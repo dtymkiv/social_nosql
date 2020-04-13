@@ -68,7 +68,6 @@ leave_comment = function(elem) {
             type: 'POST',
             data: {comment: comment},
             success: function(data){
-                console.log("i'm here")
                 if (data['added']) {
                     div.innerHTML = `<h5 style=\"margin-left: 10px; padding: 0\">${data['author']}:<br/>  ${comment}</h5>`;
                     $(elem).parents()[1].children[3].appendChild(div) }
