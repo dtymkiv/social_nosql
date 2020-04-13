@@ -9,7 +9,7 @@
     <div>
         <h2> {{ user.username }}</h2>
         <h3> {{ user.email }}</h3>
-        <h4> followers: {{ followers_c }} follows: {{ follows_c }}</h4>
+        <h4> followers: {{ user.followers|length }} follows: {{ user.follows|length }}</h4>
         <p>joined: {{ user.date_joined }}</p>
         <p>last seen: {{ user.last_login }}</p>
     </div>
