@@ -5,11 +5,12 @@ import datetime
 
 from pymongo.errors import DuplicateKeyError
 
-from posts.models import Post
+from profiles.service import ProfileService
 from social.settings import DB
 
 
 POSTS = DB["posts_post"]
+USERS = DB["auth_user"]
 
 
 class PostService:
@@ -57,6 +58,32 @@ class PostService:
                 {"$push": {"comments": {"author": comment_author, "comment": comment}}},
                 upsert=True)
         print(post)
+
+    @staticmethod
+    def get_posts_by_author(username):
+        """
+
+        :param username:
+        :return:
+        """
+        result = list(POSTS.find({"author": username}))
+        return result
+
+    @staticmethod
+    def get_posts_for_user(username):
+        """
+        get post of all users that current user follows
+
+        :param username:
+        :return:
+        """
+        result = []
+        user = ProfileService.get_profile(username)
+
+        for fol in user["follows"]:
+            posts = PostService.get_posts_by_author(fol)
+            result.extend(posts)
+        return result
 
     @staticmethod
     def get_all_posts():
