@@ -1,11 +1,12 @@
 """User model"""
-from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.core.exceptions import ObjectDoesNotExist
-from django.db import IntegrityError
-from djongo import models
 from djongo.sql2mongo import SQLDecodeError
-from pymongo.errors import BulkWriteError
 from django.contrib.auth.models import User
+
+from social.settings import DB
+
+
+USERS = DB["auth_user"]
 
 
 def create_user(username, password, email):
@@ -19,6 +20,10 @@ def create_user(username, password, email):
     try:
         user = User.objects.create_user(username=username, email=email, password=password)
         user.save()
+        USERS.find_one_and_update(
+            {"username": username},
+            {"$set": {"followers": [], "follows": []}},
+            upsert=True)
         return user
     except SQLDecodeError:
         return None

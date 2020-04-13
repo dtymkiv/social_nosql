@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path("users/", include('users.urls')),
     path("feed/", include('posts.urls')),
+    path("profiles/", include('profiles.urls')),
 
 ]

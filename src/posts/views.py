@@ -1,9 +1,17 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
-# Create your views here.
-from posts.PostService import PostService
+from posts.service import PostService
 
 
+@login_required(login_url='/users/login/')
 def feed(request):
     if request.method == "GET":
-        return render(request, 'feed.html', {"posts": PostService.get_all_posts()})
+        return render(
+            request,
+            'feed.html',
+            {
+                "posts": PostService.get_posts_for_user(request.user.username),
+                "username": request.user.username
+            }
+        )
