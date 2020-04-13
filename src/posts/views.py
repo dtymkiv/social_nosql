@@ -16,6 +16,22 @@ def feed(request):
                 "username": request.user.username
             }
         )
+    title = request.POST.get('title')
+    content = request.POST.get('content')
+    if title and content:
+        PostService.create_post(
+            author=request.user.username,
+            title=title,
+            content=content
+        )
+    return render(
+        request,
+        'feed.html',
+        {
+            "posts": PostService.get_posts_for_user(request.user.username),
+            "username": request.user.username
+        }
+    )
 
 
 @login_required(login_url='/users/login/')
