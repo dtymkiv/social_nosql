@@ -52,12 +52,10 @@ class PostService:
         """
         post = POSTS.find_one({"author": post_author, "title": post_title})
         if post:
-            print(post["comments"])
             POSTS.find_one_and_update(
                 {"author": post_author, "title": post_title},
                 {"$push": {"comments": {"author": comment_author, "comment": comment}}},
                 upsert=True)
-        print(post)
 
     @staticmethod
     def get_posts_by_author(username):
@@ -79,8 +77,10 @@ class PostService:
         """
         result = []
         user = ProfileService.get_profile(username)
+        follows = user['follows']
+        follows.append(username)
 
-        for fol in user["follows"]:
+        for fol in follows:
             posts = PostService.get_posts_by_author(fol)
             result.extend(posts)
         return result
@@ -88,4 +88,9 @@ class PostService:
     @staticmethod
     def get_all_posts():
         result = POSTS.find()
+        return result
+
+    @staticmethod
+    def get_post(title, author):
+        result = POSTS.find_one({'author': author, 'title': title})
         return result
