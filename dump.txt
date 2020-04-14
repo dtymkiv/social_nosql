@@ -1,0 +1,66 @@
+##################################### POSTS collection #######################################
+> db.posts_post.find({}).pretty()
+{
+	"_id" : ObjectId("5e5f5c040780f21fcbacafad"),
+	"author" : "admin",
+	"title" : "hello",
+	"content" : "it's me, admin!",
+	"date" : ISODate("2020-03-04T07:43:00.189Z"),
+	"comments" : [
+		{
+			"author" : "user",
+			"comment" : "gut"
+		},
+		{
+			"author" : "user2",
+			"comment" : "gut2"
+		}
+		{
+			"author" : "admin",
+			"comment" : "after develop"
+		}
+	]
+}
+
+##################################### USERS collection #######################################
+
+> db.auth_user.find({}).pretty()
+{
+	"_id" : ObjectId("5e9306e36803bf73f4220fc3"),
+	"password" : "pbkdf2_sha256$150000$aOfcchhXuT61$43taXk0NLST3CD/hozwQG99uegb2vUNLA0O12mNDEl0=",
+	"last_login" : null,
+	"is_superuser" : false,
+	"username" : "user",
+	"first_name" : "",
+	"last_name" : "",
+	"email" : "user@mail.com",
+	"is_staff" : false,
+	"is_active" : true,
+	"date_joined" : ISODate("2020-04-12T12:17:39.582Z"),
+	"followers" : [
+		"admin"
+	],
+	"follows" : [
+		"admin"
+	]
+}
+{
+	"_id" : ObjectId("5e9306f26803bf73f4220fc4"),
+	"password" : "pbkdf2_sha256$150000$ZwP9Z4KjaLQz$lzKJhfI0hDuDWtAbLl7aICls95qwUNCE7rDXCkdj4Ug=",
+	"last_login" : ISODate("2020-04-13T07:54:57.489Z"),
+	"is_superuser" : false,
+	"username" : "admin",
+	"first_name" : "",
+	"last_name" : "",
+	"email" : "admin@mail.com",
+	"is_staff" : false,
+	"is_active" : true,
+	"date_joined" : ISODate("2020-04-12T12:17:54.687Z"),
+	"followers" : [
+		"user"
+	],
+	"follows" : [
+		"user"
+	]
+}
+
