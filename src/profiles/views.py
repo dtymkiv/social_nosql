@@ -29,6 +29,8 @@ def view_profile(request, username):
                     user_name=username
                 )
 
+    user = ProfileService.get_profile(username)
+    is_following = request.user.username in user['followers']
     return render(
         request,
         'profile.html',
@@ -37,5 +39,23 @@ def view_profile(request, username):
             "posts": PostService.get_posts_by_author(username),
             "current": current,
             "is_following": is_following
+        }
+    )
+
+
+@login_required
+def view_users(request):
+    """
+
+    :param request:
+    :return:
+    """
+    users = ProfileService.get_all_profiles()
+    return render(
+        request,
+        'users.html',
+        {
+            "users": users,
+            "current": request.user.username
         }
     )

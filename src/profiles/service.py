@@ -81,3 +81,12 @@ class ProfileService:
                 upsert=True)
             return True
         return False
+
+    @staticmethod
+    def get_all_profiles():
+        """
+
+        :return:
+        """
+        result = list(USERS.find({}))
+        return result
