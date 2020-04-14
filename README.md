@@ -5,3 +5,4 @@
 ### On 'feed'  you'll se only your posts and posts of users that you've followed recently.
 ### You can can leave comment for any of those posts.
 ### On 'profile' page user can see all posts of chosen user and follow/unfollow him.
+### On 'users' page user can see all profiles and visit them.
