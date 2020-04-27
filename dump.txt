@@ -1,34 +1,145 @@
 ##################################### POSTS collection #######################################
-> db.posts_post.find({}).pretty()
+> db.posts_post.find().pretty()
 {
 	"_id" : ObjectId("5e5f5c040780f21fcbacafad"),
 	"author" : "admin",
-	"title" : "hello",
-	"content" : "it's me, admin!",
+	"title" : "test",
+	"content" : "new post",
 	"date" : ISODate("2020-03-04T07:43:00.189Z"),
 	"comments" : [
 		{
 			"author" : "user",
 			"comment" : "gut"
-		},
-		{
-			"author" : "user2",
-			"comment" : "gut2"
-		}
-		{
-			"author" : "admin",
-			"comment" : "after develop"
 		}
 	]
 }
+{
+	"_id" : ObjectId("5e94c0628b33387795789b9e"),
+	"author" : "admin",
+	"title" : "Created from ui",
+	"content" : "for real",
+	"date" : ISODate("2020-04-13T19:41:22.231Z"),
+	"comments" : [
+		{
+			"author" : "ivan",
+			"comment" : "nice"
+		},
+		{
+			"author" : "ivan",
+			"comment" : "nice"
+		},
+		{
+			"author" : "ivan",
+			"comment" : "nice"
+		}
+	]
+}
+{
+	"_id" : ObjectId("5ea696811e9338cc479e9e9b"),
+	"author" : "ivan",
+	"title" : "Hello post",
+	"content" : "It's my first post",
+	"date" : ISODate("2020-04-27T08:23:29.875Z"),
+	"comments" : [
+		{
+			"author" : "user",
+			"comment" : "Hi"
+		}
+	]
+}
+{
+	"_id" : ObjectId("5ea69ad21e9338cc479e9e9e"),
+	"author" : "maria",
+	"title" : "Post about me",
+	"content" : "And me also",
+	"date" : ISODate("2020-04-27T08:41:54.011Z"),
+	"comments" : [
+		{
+			"author" : "user",
+			"comment" : "MMMMM, interesting"
+		},
+		{
+			"author" : "user",
+			"comment" : "(actually not)"
+		}
+	]
+}
+{
+	"_id" : ObjectId("5ea69aed1e9338cc479e9e9f"),
+	"author" : "maria",
+	"title" : "I'm pretty happy",
+	"content" : "You know",
+	"date" : ISODate("2020-04-27T08:42:21.946Z"),
+	"comments" : [ ]
+}
+{
+	"_id" : ObjectId("5ea69b2e1e9338cc479e9ea0"),
+	"author" : "maria",
+	"title" : "Hello",
+	"content" : "How are you doing?",
+	"date" : ISODate("2020-04-27T08:43:26.056Z"),
+	"comments" : [
+		{
+			"author" : "user",
+			"comment" : "I'm great"
+		}
+	]
+}
+{
+	"_id" : ObjectId("5ea69bee1e9338cc479e9ea2"),
+	"author" : "user",
+	"title" : "DIY",
+	"content" : "Create your own social network in 5 mins!",
+	"date" : ISODate("2020-04-27T08:46:38.126Z"),
+	"comments" : [
+		{
+			"author" : "user",
+			"comment" : "Thats really cool, comment somebody pls("
+		},
+		{
+			"author" : "user",
+			"comment" : "I beg u"
+		}
+	]
+}
+{
+	"_id" : ObjectId("5ea69d9e1e9338cc479e9ea3"),
+	"author" : "user",
+	"title" : "Planting trees",
+	"content" : "Do you like trees?\r\nI do",
+	"date" : ISODate("2020-04-27T08:53:50.282Z"),
+	"comments" : [
+		{
+			"author" : "user",
+			"comment" : "Me too"
+		}
+	]
+}
+{
+	"_id" : ObjectId("5ea6b29d1e9338cc479e9ea5"),
+	"author" : "user",
+	"title" : "Say smth",
+	"content" : "please",
+	"date" : ISODate("2020-04-27T10:23:25.576Z"),
+	"comments" : [ ]
+}
+{
+	"_id" : ObjectId("5ea6b2ab1e9338cc479e9ea6"),
+	"author" : "user",
+	"title" : "Sad",
+	"content" : "(((((",
+	"date" : ISODate("2020-04-27T10:23:39.131Z"),
+	"comments" : [ ]
+}
+
 
 ##################################### USERS collection #######################################
 
-> db.auth_user.find({}).pretty()
+> db.auth_user.find().pretty()
 {
 	"_id" : ObjectId("5e9306e36803bf73f4220fc3"),
 	"password" : "pbkdf2_sha256$150000$aOfcchhXuT61$43taXk0NLST3CD/hozwQG99uegb2vUNLA0O12mNDEl0=",
-	"last_login" : null,
+	"last_login" : ISODate("2020-04-27T10:23:14.209Z"),
 	"is_superuser" : false,
 	"username" : "user",
 	"first_name" : "",
@@ -41,13 +152,16 @@
 		"admin"
 	],
 	"follows" : [
-		"admin"
+		"admin",
+		"maria",
+		"ivan",
+		"dmytro"
 	]
 }
 {
 	"_id" : ObjectId("5e9306f26803bf73f4220fc4"),
 	"password" : "pbkdf2_sha256$150000$ZwP9Z4KjaLQz$lzKJhfI0hDuDWtAbLl7aICls95qwUNCE7rDXCkdj4Ug=",
-	"last_login" : ISODate("2020-04-13T07:54:57.489Z"),
+	"last_login" : ISODate("2020-04-27T08:13:25.063Z"),
 	"is_superuser" : false,
 	"username" : "admin",
 	"first_name" : "",
@@ -57,10 +171,72 @@
 	"is_active" : true,
 	"date_joined" : ISODate("2020-04-12T12:17:54.687Z"),
 	"followers" : [
+		"user",
+		"ivan",
+		"maria"
+	],
+	"follows" : [
+		"user",
+		"dmytro"
+	]
+}
+{
+	"_id" : ObjectId("5e9438d19bf1fbe43f6d27ab"),
+	"password" : "pbkdf2_sha256$150000$ykWoMqVGrxb2$6SK6Y3UGD75yDV5h3s79RMZ/VxcrvRHrxXpZMlRJ1ks=",
+	"last_login" : null,
+	"is_superuser" : false,
+	"username" : "dmytro",
+	"first_name" : "",
+	"last_name" : "",
+	"email" : "dmytro@mail.com",
+	"is_staff" : false,
+	"is_active" : true,
+	"date_joined" : ISODate("2020-04-13T10:02:57.014Z"),
+	"followers" : [
+		"admin",
+		"user"
+	],
+	"follows" : [ ]
+}
+{
+	"_id" : ObjectId("5ea6965e1e9338cc479e9e99"),
+	"password" : "pbkdf2_sha256$150000$DQUrT1CAmZOQ$zg82mZRjf4jVCbiujGV9CfnHxbwfjW7TN/wZs2KF0OE=",
+	"last_login" : ISODate("2020-04-27T08:23:03.936Z"),
+	"is_superuser" : false,
+	"username" : "ivan",
+	"first_name" : "",
+	"last_name" : "",
+	"email" : "ivan@mail.com",
+	"is_staff" : false,
+	"is_active" : true,
+	"date_joined" : ISODate("2020-04-27T08:22:53.561Z"),
+	"followers" : [
+		"maria",
 		"user"
 	],
 	"follows" : [
-		"user"
+		"admin"
 	]
 }
+{
+	"_id" : ObjectId("5ea69ab51e9338cc479e9e9c"),
+	"password" : "pbkdf2_sha256$150000$8NZyZRHWbslc$eJ0liGxNOrkQ8iLLStkZihvfFiDJsSBFnEy4tUoEUrc=",
+	"last_login" : ISODate("2020-04-27T08:41:40.589Z"),
+	"is_superuser" : false,
+	"username" : "maria",
+	"first_name" : "",
+	"last_name" : "",
+	"email" : "maria@mail.com",
+	"is_staff" : false,
+	"is_active" : true,
+	"date_joined" : ISODate("2020-04-27T08:41:25.705Z"),
+	"followers" : [
+		"user"
+	],
+	"follows" : [
+		"admin",
+		"ivan"
+	]
+}
+
 
