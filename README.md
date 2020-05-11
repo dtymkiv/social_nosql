@@ -1,4 +1,5 @@
 # social_nosql
+### (Working examples of neo4j db are located in file neo4j.pdf)
 ### Simple social network with using MongoDB
 ### User can register and then log in.
 ### After successfull logging in, user will be redirected on 'feed' page, where he can create his own post.
