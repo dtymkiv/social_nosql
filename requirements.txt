@@ -1,6 +1,6 @@
 asgiref==3.2.3
 bson==0.5.8
-certifi==2020.4.5.1
+certifi==2022.12.7
 Click==7.0
 colorama==0.4.3
 dataclasses==0.6
